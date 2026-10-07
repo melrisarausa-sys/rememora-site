@@ -683,3 +683,25 @@ main #marca .manifesto-highlight{height:auto;min-height:0;padding-top:clamp(1.4r
 .numbered li.reveal.visible{transform:none}
 @media(max-width:800px){.values.continuous-ready{--flow-duration:165s}.numbered li.reveal[data-reveal="left"]{transform:translate3d(-2rem,.25rem,0)}.numbered li.reveal[data-reveal="right"]{transform:translate3d(2rem,.25rem,0)}.numbered li.reveal.visible{transform:none}}
 @media(prefers-reduced-motion:reduce){.numbered li.reveal[data-reveal]{transform:none;transition:none}}
+
+/* Preview: maior presenca da marca no Hero, alinhada ao eixo do conteudo. */
+.header>a:first-child{margin-left:-3.2rem}
+.header img{width:clamp(22rem,24vw,23rem);height:7rem;object-fit:cover;object-position:center}
+.scrolled .header img{width:clamp(15rem,16vw,17.5rem);height:5rem}
+@media(max-width:800px){
+  .header>a:first-child{margin-left:-1.8rem}
+  .header img,.scrolled .header img{width:14rem;height:4.3rem}
+}
+@media(max-width:420px){.header img,.scrolled .header img{width:13rem;height:4rem}}
+
+/* Preview: corrige o simbolo do CTA compacto sem alterar o botao. */
+@media(max-width:800px){
+  .header-cta:after{
+    content:"";
+    width:1rem;
+    height:1rem;
+    background:currentColor;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+}
