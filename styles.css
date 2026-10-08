@@ -718,3 +718,71 @@ main #marca .manifesto-highlight{height:auto;min-height:0;padding-top:clamp(1.4r
   .header img,.scrolled .header img{width:14.5rem;height:4.4rem}
   .header>a:first-child{margin-left:-2rem}
 }
+
+/* Hero: reserva respiro inferior para o CTA e sua pulsacao. */
+@media(min-width:801px){.hero{min-height:max(72svh,40rem)}}
+@media(max-width:800px){.hero{min-height:max(72svh,38rem)}}
+
+/* CTAs do WhatsApp: unidade visual, cantos arredondados e pulsacao suave. */
+.header-cta,.hero-action,.final-cta .button{border-radius:.6rem}
+.header-cta,.hero-action,.final-cta .button.visible,.whatsapp-float{animation:whatsapp-cta-pulse 5.2s ease-in-out infinite}
+.whatsapp-float{border-radius:50%}
+@keyframes whatsapp-cta-pulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.12)}
+  50%{transform:scale(1.018);box-shadow:0 0 0 .22rem rgba(255,255,255,.1)}
+}
+@media(max-width:800px){.header-cta{border-radius:.55rem}}
+@media(prefers-reduced-motion:reduce){.header-cta,.hero-action,.final-cta .button.visible,.whatsapp-float{animation:none}}
+
+/* Manifesto do Cuidador: entrada sequencial das expressoes humanas. */
+.human strong .human-word{display:block;opacity:0;transform:translate3d(0,1.4rem,0)}
+.human.reveal.visible strong .human-word{animation:human-word-enter .9s cubic-bezier(.2,.75,.2,1) forwards}
+.human.reveal.visible strong .human-word:nth-child(1){animation-delay:.2s}
+.human.reveal.visible strong .human-word:nth-child(2){animation-delay:.65s}
+.human.reveal.visible strong .human-word:nth-child(3){animation-delay:1.1s}
+.human.reveal.visible strong .human-word:nth-child(4){animation-delay:1.55s}
+.human.reveal.visible strong .human-word:nth-child(5){animation-delay:2s}
+@keyframes human-word-enter{to{opacity:1;transform:translate3d(0,0,0)}}
+@media(prefers-reduced-motion:reduce){.human strong .human-word{opacity:1;transform:none}.human.reveal.visible strong .human-word{animation:none}}
+
+/* Abertura do programa: simbolo oficial Re.Memora como marca-d'agua. */
+.care-threshold .threshold-mark{
+  position:absolute;
+  z-index:0;
+  top:50%;
+  right:2%;
+  width:clamp(34rem,58vw,60rem);
+  height:auto;
+  transform:translateY(-50%);
+  filter:brightness(0) invert(1) drop-shadow(0 0 2px rgba(255,255,255,.48));
+  opacity:.2;
+  pointer-events:none;
+}
+.care-threshold>.eyebrow,.care-threshold>h2{position:relative;z-index:1}
+@media(max-width:800px){
+  .care-threshold .threshold-mark{right:1rem;width:88vw;opacity:.11}
+}
+
+/* Abertura do projeto Ecos: simbolo oficial Re.Memora como marca-d'agua. */
+.ecos-threshold .threshold-mark{
+  position:absolute;
+  z-index:0;
+  top:50%;
+  right:3%;
+  width:clamp(32rem,52vw,54rem);
+  height:auto;
+  transform:translateY(-50%);
+  filter:brightness(0) invert(1) drop-shadow(0 0 2px rgba(255,255,255,.42));
+  opacity:.15;
+  pointer-events:none;
+}
+.ecos-threshold>.eyebrow,.ecos-threshold>h2,.ecos-threshold>.threshold-sub{position:relative;z-index:1}
+@media(max-width:800px){
+  .ecos-threshold .threshold-mark{right:1rem;width:88vw;opacity:.11}
+}
+
+/* Cabecalho fixo: amplia somente a marca exibida durante a rolagem. */
+@media(min-width:801px){
+  .scrolled .header>a:first-child{margin-left:-14.5rem}
+  .scrolled .header img{width:clamp(19rem,22vw,21rem);height:6.2rem;transform:translateY(.2rem) scale(1.9);transform-origin:left center}
+}
